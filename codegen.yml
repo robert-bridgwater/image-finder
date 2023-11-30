@@ -1,0 +1,22 @@
+overwrite: true
+schema: "http://localhost:4000"
+documents:
+  - "./src/**/*.{ts,tsx}"
+generates:
+  ./src/types/schema.ts:
+    plugins:
+      - typescript-operations
+      - typescript
+    verbose: true
+    config:
+      flattenGeneratedTypes: true
+      flattenGeneratedTypesIncludeFragments: true
+      dedupeOperationSuffix: true
+      addUnderscoreToArgsType: true
+      namingConvention: keep
+      avoidOptionals:
+        field: true
+      skipTypeNameForRoot: true
+      exportFragmentSpreadSubTypes: true
+      validate: true
+      debug: true
